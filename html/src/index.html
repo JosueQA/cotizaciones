@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="output.css" rel="stylesheet" />
+    <!--file:///home/paolo/proyects/cotizaciones/html/src/-->
+    <style>
+      * {
+        margin: 0;
+        padding: 2px;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+        max-width: 100%;
+      }
+      .body {
+        margin: 40px 2cm; /*auto*/
+        width: 17cm;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+        font-size: 12pt;
+        color: #000;
+      }
+      section {
+        margin: 5px auto;
+      }
+      h1 {
+        font-size: 18pt;
+        font-weight: bold;
+      }
+
+      h2 {
+        font-size: 14pt;
+        font-weight: bold;
+      }
+
+      h3 {
+        font-size: 12pt;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 10pt;
+      }
+
+      /* === Layout básico === */
+      .flex {
+        display: flex;
+      }
+
+      .grid {
+        display: grid;
+      }
+
+      /* === Dirección de contenido === */
+      .flex-col {
+        flex-direction: column;
+      }
+
+      /* === Alineación y justificación === */
+      .items-center {
+        align-items: center;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .justify-between {
+        justify-content: space-between;
+      }
+
+      .place-content-center {
+        place-content: center;
+      }
+
+      .pt-0 {
+        padding-top: 0px;
+      }
+
+      .pb-0 {
+        padding-bottom: 0px;
+      }
+
+      /* === Bordes === */
+      .border-2 {
+        border-width: 2px;
+      }
+
+      .border-1px {
+        border: 1px solid black;
+      }
+
+      /* === Tamaños === */
+      .basis-6\/8 {
+        flex-basis: 75%;
+      }
+
+      .basis-2\/8 {
+        flex-basis: 25%;
+      }
+
+      .basis-9\/12 {
+        flex-basis: 75%;
+      }
+
+      .basis-3\/12 {
+        flex-basis: 25%;
+      }
+
+      .h-full {
+        height: 100%;
+      }
+
+      .w-fit {
+        width: fit-content;
+      }
+
+      /* === Texto === */
+      .text-center {
+        text-align: center;
+      }
+
+      .font-semibold {
+        font-weight: 600;
+      }
+
+      /* === Fondo y colores === */
+      .bg-amber-300 {
+        background-color: #fcd34d;
+      }
+
+      /* === Espaciado y márgenes === */
+      .m-0 {
+        margin: 0;
+      }
+
+      /* === Grid personalizado === */
+      .grid-cols-125px_calc100-125px {
+        grid-template-columns: 125px calc(100% - 125px);
+      }
+
+      .grid-cols-120px_calc100-120px {
+        grid-template-columns: 120px calc(100% - 120px);
+      }
+
+      .grid-cols-10_10_50_15_15 {
+        grid-template-columns: 10% 10% 50% 15% 15%;
+      }
+
+      .grid-cols-70_30 {
+        grid-template-columns: 70% 30%;
+      }
+
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-cols-140px_calc100-140px {
+        grid-template-columns: 140px calc(100% - 140px);
+      }
+
+      .grid-cols-\[100px_85px_175px_220px\] {
+        grid-template-columns: 100px 85px 175px 220px;
+      }
+
+      /* === Utilidades extra === */
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+  <body class="break-words">
+    <!--Esta clase ayuda a dar saltos de linea en textos muy largos dnetro de un grid-->
+    <div class="body">
+      <!--INFORMACION DE LA EMPRESA REMITENTE Y COTIZACION-->
+      <section class="flex items-center">
+        <!--Informacion de la empresa-->
+        <div class="basis-6/8">
+          <!--Logo de la empresa-->
+          <div class="flex justify-center">
+            <img src="data:image/jpeg;base64,{{LOGO}}" alt="" class="h-full" />
+          </div>
+          <!-- Informacion -->
+          <div class="text-center">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Reiciendis possimus illum labore distinctio esse sint, eum dolor
+              laudantium assumenda perferendis quod ducimus? Aperiam, molestias
+              explicabo totam maiores quae quisquam accusamus.
+            </p>
+
+            <ul class="flex flex-wrap justify-center" style="list-style: none">
+              <li>
+                <p><span class="font-semibold">Telefono:</span>{{TELEFONO}}</p>
+              </li>
+              <li>
+                <p><span class="font-semibold">Correo:</span>{{CORREO}}</p>
+              </li>
+              <li>
+                <p>
+                  <span class="font-semibold">Direccion:</span>{{DIRECCION}}
+                </p>
+              </li>
+            </ul>
+            <p>www.cutedog.com</p>
+          </div>
+        </div>
+        <!-- Ruc y numero de cotizacion -->
+        <div class="basis-2/8 bg-amber-300 flex flex-col items-center border-2">
+          <p>RUC: 204982612</p>
+          <h2 class="">COTIZACION</h2>
+          <p>CT01 - 0000941</p>
+        </div>
+      </section>
+
+      <!--INFORMACION DE LA EMPRESA RECEPTOR-->
+      <section class="flex items-center justify-between">
+        <div class="basis-9/12 grid grid-cols-125px_calc100-125px">
+          <div class="place-content-center font-semibold"><p>RUC:</p></div>
+          <div class="place-content-center"><p>{{RUC_CLIENTE}}</p></div>
+          <div class="place-content-center font-semibold">
+            <p>RAZON SOCIAL:</p>
+          </div>
+          <div class="place-content-center"><p>{{RAZON_SOCIAL_CLIENTE}}</p></div>
+          <div class="place-content-center font-semibold"><p>CONTACTO:</p></div>
+          <div class="place-content-center"><p>{{CONTACTO_CLIENTE}}</p></div>
+          <div class="place-content-center font-semibold"><p>CORREO:</p></div>
+          <div class="place-content-center"><p>{{CORREO_CLIENTE}}</p></div>
+        </div>
+        <!--VENDEDOR-->
+        <div class="basis-3/12 grid grid-cols-120px_calc100-120px">
+          <div class="font-semibold"><p>VENDEDOR:</p></div>
+          <div><p>{{VENDEDOR}}</p></div>
+          <div class="font-semibold"><p>FECHA DE EM.</p></div>
+          <div><p>{{FECHA_DE_EM.}}</p></div>
+          <div class="font-semibold"><p>FECHA DE VCTO</p></div>
+          <div><p>{{FECHA_DE_VCTO}}</p></div>
+          <div class="font-semibold"></div>
+        </div>
+      </section>
+
+      <!--CUADRO DE PRODUCTOS-->
+      <section>
+        <!--Encabezado de columnas-->
+        <div class="grid grid-cols-10_10_50_15_15 pb-0">
+          <div class="text-center border-1px font-semibold"><p>ITEM</p></div>
+          <div class="text-center border-1px font-semibold"><p>CANT.</p></div>
+          <div class="text-center border-1px font-semibold">
+            <p>DESCRIPCION</p>
+          </div>
+          <div class="text-center border-1px font-semibold">
+            <p>VALOR UNIT.</p>
+          </div>
+          <div class="text-center border-1px font-semibold"><p>IMPORTE</p></div>
+        </div>
+        <!--Productos-->
+        <div class="grid grid-cols-10_10_50_15_15 pt-0">
+          <!-- EJEMPLOS
+           
+          <div class="text-center flex items-center justify-center border-1px">
+            <p>{p['item']}{p['item']}{p['item']}{p['item']}</p>
+          </div>
+          <div class="text-center flex items-center justify-center border-1px">
+            <p>{p['cantidad']}</p>
+          </div>
+
+          <div class="text-center flex items-center justify-center border-1px">
+            <p>{p['descripcion']}</p>
+          </div>
+          <div class="text-center flex items-center justify-center border-1px">
+            <p>{p['valor_unit']}</p>
+          </div>
+          <div class="text-center flex items-center justify-center border-1px">
+            <p>{p['importe']:.2f}</p>
+          </div> -->
+          {{filas}}
+        </div>
+        <p><b>SON:</b>{{DINERO_ESCRITO}}</p>
+      </section>
+
+      <!--OBSERVACION Y TOTAL DEL CUADRO DE PRODUCTOS-->
+      <section class="grid grid-cols-70_30">
+        <!-- Detalles de la venta -->
+        <div class="grid grid-cols-140px_calc100-140px">
+          <div class="m-0 flex items-center justify-start font-semibold">
+            <p>TIEMPO DE ENTREGA:</p>
+          </div>
+          <div class="m-0 flex items-center justify-start">
+            <p>{{TIEMPO_DE_ENTREGA}}</p>
+          </div>
+          <div class="place-content-center font-semibold">
+            <p>DIRECCION DE ENTREGA:</p>
+          </div>
+          <div class="place-content-center"><p>{{DIRECCION_DE_ENTREGA_CLIENTE}}</p></div>
+          <div class="m-0 flex items-center justify-start font-semibold">
+            <p>FORMA DE PAGO:</p>
+          </div>
+          <div class="m-0 flex items-center justify-start"><p>{{FORMA_DE_PAGO}}</p></div>
+          <div class="m-0 flex items-center justify-start font-semibold">
+            <p>OBSERVACIONES:</p>
+          </div>
+          <div class="m-0 flex items-center justify-start"><p>{{OBSERVACIONES}}</p></div>
+        </div>
+        <!--Sub total, IGV y Total-->
+        <div class="grid grid-cols-2">
+          <div
+            class="flex items-center justify-center border-1px font-semibold">
+            <p>SUBTOTAL:</p>
+          </div>
+          <div class="flex items-center justify-center border-1px">
+            <p>{{SUBTOTAL}}</p>
+          </div>
+          <div
+            class="flex items-center justify-center border-1px font-semibold"
+          >
+            <p>IGV (18%):</p>
+          </div>
+          <div class="flex items-center justify-center border-1px">
+            <p>{{IGV}}</p>
+          </div>
+          <div
+            class="flex items-center justify-center border-1px font-semibold"
+          >
+            <p>TOTAL:</p>
+          </div>
+          <div class="flex items-center justify-center border-1px">
+            <p>{{TOTAL}}</p>
+          </div>
+        </div>
+      </section>
+
+      <!--CUENTAS BANCARIAS-->
+      <section>
+        <p><b>CUENTAS BANCARIAS</b></p>
+        <div
+          class="grid grid-cols-[100px_85px_175px_220px] place-content-center w-fit"
+        >
+          <!--Titulos-->
+          <div class="border-1px flex items-center justify-center font-semibold">
+            <p>BANCO</p>
+          </div>
+          <div class="border-1px flex items-center justify-center font-semibold">
+            <p>MONEDA</p>
+          </div>
+          <div class="border-1px flex items-center justify-center font-semibold">
+            <p>CUENTA CORRIENTE</p>
+          </div>
+          <div class="border-1px flex items-center justify-center font-semibold">
+            <p>CODIGO INTERBANCARIO CCI</p>
+          </div>
+          <!--Fila 1-->
+          <div class="border-1px flex items-center text-center">
+            <p class="w-full">{{BANCO_1}}</p>
+          </div>
+          <div class="border-1px flex items-center text-center">
+            <p>SOLES DOLARES</p>
+          </div>
+          <div class="border-1px flex items-center text-center">
+            <p>{{BANCO_1_SOLES}} {{BANCO_1_SOLES_CCI}}</p>
+          </div>
+          <div class="border-1px flex items-center text-center">
+            <p>{{BANCO_1_DOLARES}}{{BANCO_1_DOLARES_CCI}}</p>
+          </div>
+          <!--Fila 2-->
+          <div class="border-1px flex items-center text-center">
+            <p class="w-full">{{BANCO_2}}</p>
+          </div>
+          <div class="border-1px flex items-center text-center">
+            <p>SOLES DOLARES</p>
+          </div>
+          <div class="border-1px flex items-center text-center">
+            <p>{{BANCO_1_SOLES}} {{BANCO_1_SOLES_CCI}}</p>
+          </div>
+          <div class="border-1px flex items-center text-center">
+            <p>{{BANCO_1_DOLARES}}{{BANCO_1_DOLARES_CCI}}</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
