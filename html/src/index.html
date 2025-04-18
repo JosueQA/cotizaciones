@@ -109,6 +109,14 @@
         flex-basis: 25%;
       }
 
+      .basis-8\/12 {
+        flex-basis: 66.67%;
+      }
+
+      .basis-4\/12 {
+        flex-basis: 33.33%;
+      }
+
       .h-full {
         height: 100%;
       }
@@ -174,6 +182,7 @@
   <body class="break-words">
     <!--Esta clase ayuda a dar saltos de linea en textos muy largos dnetro de un grid-->
     <div class="body">
+
       <!--INFORMACION DE LA EMPRESA REMITENTE Y COTIZACION-->
       <section class="flex items-center">
         <!--Informacion de la empresa-->
@@ -204,20 +213,20 @@
                 </p>
               </li>
             </ul>
-            <p>www.cutedog.com</p>
+            <p>{{PAGINA_WEB}}</p>
           </div>
         </div>
         <!-- Ruc y numero de cotizacion -->
         <div class="basis-2/8 bg-amber-300 flex flex-col items-center border-2">
-          <p>RUC: 204982612</p>
+          <p>RUC: {{RUC}}</p>
           <h2 class="">COTIZACION</h2>
           <p>CT01 - 0000941</p>
         </div>
       </section>
 
-      <!--INFORMACION DE LA EMPRESA RECEPTOR-->
+      <!--INFORMACION DE LA EMPRESA RECEPTOR, VENDEDOR Y FECHAS-->
       <section class="flex items-center justify-between">
-        <div class="basis-9/12 grid grid-cols-125px_calc100-125px">
+        <div class="basis-8/12 grid grid-cols-125px_calc100-125px bg-amber-300">
           <div class="place-content-center font-semibold"><p>RUC:</p></div>
           <div class="place-content-center"><p>{{RUC_CLIENTE}}</p></div>
           <div class="place-content-center font-semibold">
@@ -230,11 +239,11 @@
           <div class="place-content-center"><p>{{CORREO_CLIENTE}}</p></div>
         </div>
         <!--VENDEDOR-->
-        <div class="basis-3/12 grid grid-cols-120px_calc100-120px">
+        <div class="basis-4/12 grid grid-cols-120px_calc100-120px bg">
           <div class="font-semibold"><p>VENDEDOR:</p></div>
           <div><p>{{VENDEDOR}}</p></div>
           <div class="font-semibold"><p>FECHA DE EM.</p></div>
-          <div><p>{{FECHA_DE_EM.}}</p></div>
+          <div><p>{{FECHA_DE_EM}}</p></div>
           <div class="font-semibold"><p>FECHA DE VCTO</p></div>
           <div><p>{{FECHA_DE_VCTO}}</p></div>
           <div class="font-semibold"></div>
@@ -275,12 +284,12 @@
           <div class="text-center flex items-center justify-center border-1px">
             <p>{p['importe']:.2f}</p>
           </div> -->
-          {{filas}}
+          {{FILAS}}
         </div>
         <p><b>SON:</b>{{DINERO_ESCRITO}}</p>
       </section>
 
-      <!--OBSERVACION Y TOTAL DEL CUADRO DE PRODUCTOS-->
+      <!--OBSERVACIONES DE LA COTIZACION Y TOTAL DEL CUADRO DE PRODUCTOS-->
       <section class="grid grid-cols-70_30">
         <!-- Detalles de la venta -->
         <div class="grid grid-cols-140px_calc100-140px">
@@ -310,7 +319,7 @@
             <p>SUBTOTAL:</p>
           </div>
           <div class="flex items-center justify-center border-1px">
-            <p>{{SUBTOTAL}}</p>
+            <p>{{SUB_TOTAL}}</p>
           </div>
           <div
             class="flex items-center justify-center border-1px font-semibold"
@@ -351,18 +360,7 @@
             <p>CODIGO INTERBANCARIO CCI</p>
           </div>
           <!--Fila 1-->
-          <div class="border-1px flex items-center text-center">
-            <p class="w-full">{{BANCO_1}}</p>
-          </div>
-          <div class="border-1px flex items-center text-center">
-            <p>SOLES DOLARES</p>
-          </div>
-          <div class="border-1px flex items-center text-center">
-            <p>{{BANCO_1_SOLES}} {{BANCO_1_SOLES_CCI}}</p>
-          </div>
-          <div class="border-1px flex items-center text-center">
-            <p>{{BANCO_1_DOLARES}}{{BANCO_1_DOLARES_CCI}}</p>
-          </div>
+          {{CUENTAS_BANCARIAS}}
           <!--Fila 2-->
           <div class="border-1px flex items-center text-center">
             <p class="w-full">{{BANCO_2}}</p>
