@@ -4,7 +4,6 @@ def cliente(
         contacto_cliente = "Ing. Luis Rios Del Campo", 
         correo_cliente = "hola@negocio.com",
         direccion_de_entrega_cliente = "Jr fin del sur 3123 ",
-        forma_de_pago = "CONTADO", 
         ):
     # Datos
 
@@ -14,5 +13,4 @@ def cliente(
         "contacto_cliente": contacto_cliente, 
         "correo_cliente": correo_cliente,
         "direccion_de_entrega_cliente": direccion_de_entrega_cliente,
-        "forma_de_pago": forma_de_pago,
     }
