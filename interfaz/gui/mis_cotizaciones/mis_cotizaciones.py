@@ -13,9 +13,6 @@ def mis_cotizaciones(root):
     
     fr_mis_cotizaciones.generar_label("MIS COTIZACIONES")
     
-    fr_mis_cotizaciones.generar_label("VISUALIZA Y DESCARGA TUS COTIZACIONES CREADAS")
-
-    
     '''INGRESAR DATOS'''
     fr_grid_0 = new_frame.newFrame(fr_mis_cotizaciones.frame) # Frame para crear grid para INGRESAR RUC
     fr_grid_0.aparecer()

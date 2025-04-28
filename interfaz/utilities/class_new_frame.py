@@ -115,3 +115,35 @@ class newFrame(tk.Frame):
         anchor='w': Alinea el Radiobutton a la izquierda del contenedor (o del lado oeste).'''
 
 
+# Este grid esta echo ESPECIFICAMNTE PARA USAR RADIOBUTTON
+def nuevo_grid(root, fr_actual, frame_padre, int_columna, str_emisor_o_receptor, list_empresa_radiobutton, list_contactos_radiobutton):
+    
+    # Creamos el grid contenedor
+    fr_grid_contenedor = new_frame.newFrame(frame_padre.frame)
+
+    # Si 'int_columna' es un numero, lo definimos como el numero de la columna en un grid, sino no sera grid
+    if type(int_columna) == int:
+        fr_grid_contenedor.frame.grid(row=0, column=int_columna, padx=10, pady=10)
+    else:
+        fr_grid_contenedor.frame.pack()
+
+
+    # Empresas ----------------------------------------------------------------
+    fr_grid_contenedor.generar_label(str_emisor_o_receptor)
+
+    # Generamos las opciones a elegir de las empresas creadas
+    fr_grid_contenedor.radioButton(*list_empresa_radiobutton) # El ' * ' desempaqueta una lista o tupla, para poder pasar los elementos como valores
+
+    # Grid para los botones de la seccion empresas --------------------------------
+    fr_grid_contenedor.generar_boton("NUEVA EMPRESA", funcion= lambda: func.cambio_frame(fr_actual, mi_empresa_agregar_empresa.mi_empresa_agregar_empresa(root)))
+    
+
+
+    # Contacto ----------------------------------------------------------------
+    fr_grid_contenedor.generar_label("CONTACTO")
+
+    # Generamos las opciones a elegir de los contactos creados
+    fr_grid_contenedor.radioButton(*list_contactos_radiobutton)
+
+    # Grid para los botones de la seccion empresas --------------------------------
+    fr_grid_contenedor.generar_boton("NUEVO CONTACTO", funcion= lambda: func.cambio_frame(fr_actual, mi_empresa_agregar_contacto.mi_empresa_agregar_contacto(root)))

@@ -34,9 +34,9 @@ def inicio(root):
     fr_main_menu.generar_label("COTI VERSION 0")  
       
     
-    fr_main_menu.generar_boton("MI EMPRESA", funcion= lambda: func.cambio_frame(fr_main_menu, interfaces['fr_mi_empresa']))
-    
     fr_main_menu.generar_boton("NUEVA COTIZACION", funcion= lambda: func.cambio_frame(fr_main_menu, interfaces['fr_nueva_cotizacion']))
+    
+    fr_main_menu.generar_boton("MI EMPRESA", funcion= lambda: func.cambio_frame(fr_main_menu, interfaces['fr_mi_empresa']))
 
     fr_main_menu.generar_boton("MIS COTIZACIONES", funcion= lambda: func.cambio_frame(fr_main_menu, interfaces['fr_mis_cotizaciones']))
 
