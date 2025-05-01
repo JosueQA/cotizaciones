@@ -16,23 +16,30 @@ def nueva_cotizacion(root):
     
  
     '''INGRESAR DATOS'''
-     # Emisor ----------------------------------------------------------------
-    fr_nueva_cotizacion.generar_label("VENDEDOR")
-    vendedores = ["NOMBRE  CORREO@GMAIL.COM  CELULAR", "NOMBRE2  CORREO@GMAIL.COM  CELULAR"]
-    fr_nueva_cotizacion.radioButton(*vendedores)
+    # Cliente ----------------------------------------------------------------
 
+    # Agregamos un frame tipo PACK (no podemos crear grid directamente, porque ya hay 1 elemento PACK implementado en el mismo espacio)
+    fr_cliente = new_frame.newFrame(fr_nueva_cotizacion.frame) 
+    fr_cliente.aparecer()
 
-    # # Grid receptor ---------------------------------------------------------------
-    # fr_nueva_cotizacion.generar_label("CLIENTE")
-
-    # fr_cliente = new_frame.newFrame(fr_nueva_cotizacion) # Frame AGREGAR EMPRESA
-
-    # fr_cliente_0 = new_frame.newFrame(fr_cliente)
-    # fr_cliente_0.frame.grid(column=0, row=0, padx=10, pady=10) # Creamos un frame que será la columna 0 de un grid de 'fr_nueva_cotizacion'
-    # if True: 
-    #     fr_cliente_0_empresas = ["RAZON SOCIAL 3", "RAZON SOCIAL 1", "RAZON SOCIAL 2"]
-    #     fr_cliente_0.radioButton(*fr_cliente_0_empresas)
+    # Primera columna
+    fr_cliente_0 = new_frame.newFrame(fr_cliente.frame)
+    fr_cliente_0.frame.grid(column=0, row=0, padx=10, pady=10) 
     
+    fr_cliente_0.generar_label("RUC") 
+    fr_cliente_0.generar_label("RAZON SOCIAL") 
+    fr_cliente_0.generar_label("DIRECCION DE ENTREGA") 
+
+    # Segunda columna
+    fr_cliente_1 = new_frame.newFrame(fr_cliente.frame)
+    fr_cliente_1.frame.grid(column=1, row=0, padx=10, pady=10) 
+    
+    fr_cliente_1.generar_combobox() 
+    fr_cliente_1.generar_combobox() 
+
+    '''CAMBIAR GRID, ESPECIFICAR EL ROW DE CADA WIDGET'''
+
+
     
     # fr_cliente_1 = new_frame.newFrame(fr_cliente)
     # fr_cliente_1.frame.grid(column=1, row=0, padx=10, pady=10) # Creamos un frame que será la columna 0 de un grid de 'fr_nueva_cotizacion'

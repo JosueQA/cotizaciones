@@ -1,12 +1,15 @@
 import tkinter as tk
+from tkinter import ttk 
 from utilities import datos_generales as dg
 
 class newFrame(tk.Frame):
     
     def __init__(self, root, **kwargs):
         
+        # root es el contenedor padre del frame
         self.root = root
                 
+        # Creamos el frame
         self.frame = tk.Frame(root, **kwargs)
         self.widgets = {
             'label': [],
@@ -78,8 +81,21 @@ class newFrame(tk.Frame):
         for i in self.widgets[boton_entry_label]:
             i.config(kwargs)
 
-    
 
+    def generar_combobox(self, pack_grid_place = 'pack', espacio_entre_widget = dg.secciones, opciones = ["", "Opción 1", "Opción 2", "Opción 3"],**kwargs):
+      
+        # Widget que permite escribir o seleccionar entre opciones
+        combobox = ttk.Combobox(self.frame, values=opciones)
+        combobox.current(0)
+
+        if pack_grid_place == 'pack':
+            combobox.pack(pady=espacio_entre_widget, **kwargs)
+        elif pack_grid_place == 'grid':
+            combobox.grid(kwargs)
+
+        return combobox
+
+    
     def radioButton(self, *args):
         opciones = [*args]
 
