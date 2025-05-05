@@ -45,6 +45,7 @@ def inicio(root):
     fr_main_menu.generar_boton("SALIR", funcion=lambda: root.destroy())
 
     
+
     #frame.botones_pack(pady=20)
        
    # button.pack(pady=20)

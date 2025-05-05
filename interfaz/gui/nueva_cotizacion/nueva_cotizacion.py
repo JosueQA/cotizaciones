@@ -22,23 +22,24 @@ def nueva_cotizacion(root):
     fr_cliente = new_frame.newFrame(fr_nueva_cotizacion.frame) 
     fr_cliente.aparecer()
 
-    # Primera columna
-    fr_cliente_0 = new_frame.newFrame(fr_cliente.frame)
-    fr_cliente_0.frame.grid(column=0, row=0, padx=10, pady=10) 
+    # Creamos el grid
+    fr_cliente_grid = new_frame.newFrame(fr_cliente.frame)
+    fr_cliente_grid.aparecer()
     
-    fr_cliente_0.generar_label("RUC") 
-    fr_cliente_0.generar_label("RAZON SOCIAL") 
-    fr_cliente_0.generar_label("DIRECCION DE ENTREGA") 
+    # Primera columna
+    fr_cliente_grid.generar_label("RUC", 'grid', row=0, column=0, padx=10, pady=10) 
+    fr_cliente_grid.generar_label("RAZON SOCIAL", 'grid', row=1, column=0, padx=10, pady=10) 
+    fr_cliente_grid.generar_label("DIRECCION DE ENTREGA", 'grid', row=2, column=0, padx=10, pady=10) 
 
     # Segunda columna
-    fr_cliente_1 = new_frame.newFrame(fr_cliente.frame)
-    fr_cliente_1.frame.grid(column=1, row=0, padx=10, pady=10) 
-    
-    fr_cliente_1.generar_combobox() 
-    fr_cliente_1.generar_combobox() 
+    fr_cliente_grid.generar_combobox('grid', row=0, column=1, padx=10, pady=10) 
+    fr_cliente_grid.generar_label('--------------', 'grid', row=1, column=1, padx=10, pady=10) 
+    fr_cliente_grid.generar_text('grid', row=2, column=1, padx=10, pady=10) 
 
-    '''CAMBIAR GRID, ESPECIFICAR EL ROW DE CADA WIDGET'''
-
+    # Tercer columna
+    fr_cliente_grid.generar_boton('P', 'grid', width='defecto', row=0, column=2, padx=2, pady=10)
+    fr_cliente_grid.generar_boton('X', 'grid', width='defecto', row=0, column=3, padx=2, pady=10)
+    fr_cliente_grid.generar_boton('Persona', 'grid', width='defecto', row=0, column=4, padx=2, pady=10)
 
     
     # fr_cliente_1 = new_frame.newFrame(fr_cliente)
@@ -50,7 +51,7 @@ def nueva_cotizacion(root):
 
     # -----------------------------------------------------------------------------
 
-    fr_nueva_cotizacion.generar_boton("SIGUIENTE", funcion= lambda: func.cambio_frame(fr_nueva_cotizacion, nueva_cotizacion_paso_2.nueva_cotizacion_paso_2(root)))#
+    fr_nueva_cotizacion.generar_boton("SIGUIENTE", funcion= lambda: func.cambio_frame(fr_nueva_cotizacion, nueva_cotizacion_paso_2.nueva_cotizacion_paso_2(root)), width="defecto")
 
     return fr_nueva_cotizacion
 

@@ -7,8 +7,8 @@ def nav(root):
     fr_nav = new_frame.newFrame(root)
     fr_nav.frame.place(x=0, y=0, width=dg.ancho, height=50)
 
-    fr_nav.generar_boton('<-', 'place', x=10, y = 10, funcion= lambda: volver_frame_anterior())
-    fr_nav.generar_boton('->', 'place', x=dg.ancho-35, y = 10, funcion= lambda: volver_frame_posterior())
+    fr_nav.generar_boton('<-', 'place', x=10, y = 10, funcion= lambda: volver_frame_anterior(), width='defecto')
+    fr_nav.generar_boton('->', 'place', x=40, y = 10, funcion= lambda: volver_frame_posterior(), width='defecto')
 
 
 

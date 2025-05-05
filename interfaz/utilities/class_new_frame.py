@@ -14,8 +14,10 @@ class newFrame(tk.Frame):
         self.widgets = {
             'label': [],
             'button': [],
-            'entry': []
+            'entry': [],
+            'text': []
         }
+
     def __repr__(self):
         return f"<NewFrame(id={id(self)})>"
 
@@ -27,8 +29,15 @@ class newFrame(tk.Frame):
     
 
 
-    def generar_entry(self, pack_grid_place = 'pack', espacio_entre_widget = dg.secciones, **kwargs):
+    def generar_entry(self, pack_grid_place = 'pack', espacio_entre_widget = dg.secciones, width="defecto",**kwargs):
         entry = tk.Entry(self.frame)
+
+        # match width: 
+        #     case "titulo": # Si el width es para titulos, valdra 18px
+        #         width=18
+        #     case "defecto": # Sino valdrá 0, lo cual le da su ancho por defecto
+        #         width=0
+
 
         if pack_grid_place == 'pack':
             entry.pack(pady=espacio_entre_widget, **kwargs)
@@ -40,12 +49,31 @@ class newFrame(tk.Frame):
         return entry
 
 
-    def generar_boton(self, texto, pack_grid_place = 'pack', espacio_entre_widget = dg.secciones, funcion=None, **kwargs):
+    def generar_text(self, pack_grid_place = 'pack', espacio_entre_widget = dg.secciones, height=3, width=25,**kwargs):
+        text = tk.Text(self.frame, height=height, width=width)
+
+        if pack_grid_place == 'pack':
+            text.pack(pady=espacio_entre_widget, **kwargs)
+        elif pack_grid_place == 'grid':
+            text.grid(kwargs)
+
+        self.widgets['text'].append(text)
+
+        return text
+
+
+    def generar_boton(self, texto, pack_grid_place = 'pack', espacio_entre_widget = dg.secciones, funcion=None, width="titulo", **kwargs):
         if funcion is None:
             funcion = lambda: print("hello world")
-            
-            # Creamos el boton
-        button = tk.Button(self.frame, text=texto, command= funcion)
+
+        match width: 
+            case "titulo": # Si el width es para titulos, valdra 18px
+                width=18
+            case "defecto": # Sino valdrá 0, lo cual le da su ancho por defecto
+                width=0
+
+            # Creamos el boton con un width por defecto
+        button = tk.Button(self.frame, text=texto, command= funcion, width=width) 
         
             # Definimos la geometria de uso 
         if pack_grid_place == 'pack':
@@ -62,9 +90,9 @@ class newFrame(tk.Frame):
         return button
              
  
-    def generar_label(self, texto, pack_grid_place = 'pack', espacio_entre_widget = dg.secciones, **kwargs):
+    def generar_label(self, texto, pack_grid_place = 'pack', espacio_entre_widget = dg.secciones, bd= 0, relief="groove",**kwargs):
         
-        label = tk.Label(self.frame, text=texto)
+        label = tk.Label(self.frame, text=texto, bd=bd, relief=relief)
         
         if pack_grid_place == 'pack':
             label.pack(pady=espacio_entre_widget, **kwargs)
@@ -76,16 +104,10 @@ class newFrame(tk.Frame):
         return label
 
 
-    def widget_config(self, boton_entry_label, **kwargs):
-
-        for i in self.widgets[boton_entry_label]:
-            i.config(kwargs)
-
-
     def generar_combobox(self, pack_grid_place = 'pack', espacio_entre_widget = dg.secciones, opciones = ["", "Opción 1", "Opción 2", "Opción 3"],**kwargs):
       
         # Widget que permite escribir o seleccionar entre opciones
-        combobox = ttk.Combobox(self.frame, values=opciones)
+        combobox = ttk.Combobox(self.frame, values=opciones, width=30)
         combobox.current(0)
 
         if pack_grid_place == 'pack':
@@ -129,6 +151,14 @@ class newFrame(tk.Frame):
         Este es el método de geometría pack que coloca el Radiobutton dentro de su contenedor (frame_opciones).
 
         anchor='w': Alinea el Radiobutton a la izquierda del contenedor (o del lado oeste).'''
+
+
+    def widget_config(self, boton_entry_label, **kwargs):
+        for i in self.widgets[boton_entry_label]:
+            i.config(kwargs)
+
+
+
 
 
 # Este grid esta echo ESPECIFICAMNTE PARA USAR RADIOBUTTON

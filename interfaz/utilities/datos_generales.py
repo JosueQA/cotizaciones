@@ -1,4 +1,5 @@
 
+
 ancho = 800
 alto = 600
 
@@ -9,3 +10,5 @@ secciones = 10
 h1_espacio = 30
 
 frameActual = 0
+
+# APARIENCIA DE LOS WIDGETS

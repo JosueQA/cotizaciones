@@ -20,13 +20,11 @@ def nueva_cotizacion_paso_2(root):
     fr_grid_0 = new_frame.newFrame(fr_nueva_cotizacion_paso_2.frame)
     fr_grid_0.aparecer()
 
-    fr_grid_0.generar_label("ITEM", pack_grid_place='grid', row=0, column=0, padx=15)
-    fr_grid_0.generar_label("CODIGO", pack_grid_place='grid', row=0, column=1, padx=15)
-    fr_grid_0.generar_label("PRODUCTO", pack_grid_place='grid', row=0, column=2, padx=15)
-    fr_grid_0.generar_label("CANT.", pack_grid_place='grid', row=0, column=3, padx=15)
-    fr_grid_0.generar_label("SUBTOTAL", pack_grid_place='grid', row=0, column=4, padx=15)
-    fr_grid_0.generar_label("IGV", pack_grid_place='grid', row=0, column=5, padx=15)
-    fr_grid_0.generar_label("TOTAL", pack_grid_place='grid', row=0, column=6, padx=15)
+    fr_grid_0.generar_label("ITEM", pack_grid_place='grid', bd=3, relief="groove", row=0, column=0, padx=0)
+    fr_grid_0.generar_label("CANTIDAD", pack_grid_place='grid', bd=3, relief="groove", row=0, column=1, padx=0)
+    fr_grid_0.generar_label("DESCRIPCION", pack_grid_place='grid', bd=3, relief="groove", row=0, column=2, ipadx=30, padx=0)
+    fr_grid_0.generar_label("VALOR UNIT.", pack_grid_place='grid', bd=3, relief="groove", row=0, column=3, padx=0)
+    fr_grid_0.generar_label("IMPORTE", pack_grid_place='grid', bd=3, relief="groove", row=0, column=4, ipadx=10, padx=0)
     
     '''INGRESAR DATOS'''
 
@@ -35,7 +33,6 @@ def nueva_cotizacion_paso_2(root):
     # ----------------------------------------------------------------
     fr_nueva_cotizacion_paso_2.generar_boton("AGREGAR PRODUCTO")
 
-    fr_nueva_cotizacion_paso_2.generar_boton("AGREGAR PRODUCTO", pady=25)
     fr_nueva_cotizacion_paso_2.generar_boton("CANCELAR", funcion=lambda: func.cambio_frame(fr_nueva_cotizacion_paso_2, main_menu.inicio(root), comportamiento='cancelar'))
     
     
